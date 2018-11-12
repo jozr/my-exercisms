@@ -4,9 +4,8 @@ import "fmt"
 
 // ShareWith who?
 func ShareWith(name string) string {
-	address := name
 	if name == "" {
-		address = "you"
+		name = "you"
 	}
-	return fmt.Sprintf("One for %s, one for me.", address)
+	return fmt.Sprintf("One for %s, one for me.", name)
 }
