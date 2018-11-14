@@ -2,11 +2,12 @@ package hamming
 
 import "errors"
 
-func Distance(a, b string) (distance int, err error) {
+func Distance(a, b string) (int, error) {
 	if len(b) != len(a) {
-		return -1, errors.New("Strings 'a' and 'b' are unequal in length.")
+		return -1, errors.New("strings 'a' and 'b' are unequal in length")
 	}
-	for i := 0; i < len(a); i++ {
+	distance := 0
+	for i, _ := range a {
 		if a[i] != b[i] {
 			distance++
 		}
