@@ -1,7 +1,8 @@
 package raindrops
 
-import "fmt"
+import "strconv"
 
+// Convert number of raindrops into sound or return number
 func Convert(number int) string {
 	sound := ""
 	if number%3 == 0 {
@@ -14,7 +15,7 @@ func Convert(number int) string {
 		sound += "Plong"
 	}
 	if sound == "" {
-		return fmt.Sprintf("%d", number)
+		sound = strconv.Itoa(number)
 	}
 	return sound
 }
