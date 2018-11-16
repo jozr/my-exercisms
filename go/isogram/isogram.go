@@ -5,17 +5,14 @@ import "unicode"
 // IsIsogram verifies a word has no duplicate letters
 func IsIsogram(word string) bool {
 	var charCountMap = map[rune]int{}
-	boolean := true
-
 	for _, char := range word {
+		lowercaseChar := unicode.ToLower(char)
 		if unicode.IsLetter(char) {
-			charCountMap[unicode.ToLower(char)]++
+			charCountMap[lowercaseChar]++
+		}
+		if charCountMap[lowercaseChar] > 1 {
+			return false
 		}
 	}
-	for _, count := range charCountMap {
-		if count > 1 {
-			boolean = false
-		}
-	}
-	return boolean
+	return true
 }
